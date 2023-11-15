@@ -2,7 +2,7 @@ Encode [ulid](https://github.com/oklog/ulid/)s as protobuf directly.
 
 # Usage
 
-1) import the proto file in your proto code  
+1) Import the proto file in your proto code  
 
    `mymessage.proto`:  
    ```proto
@@ -20,7 +20,7 @@ Encode [ulid](https://github.com/oklog/ulid/)s as protobuf directly.
    
    ```
 
-2) add this library to your code:
+2) Add this library to your code:
    ```
    $ go get github.com/exaring/ulid-protobuf@latest
    ```
@@ -33,3 +33,14 @@ Encode [ulid](https://github.com/oklog/ulid/)s as protobuf directly.
    ```
 
    Note the trick with `--proto_path`: it allows `protoc` to find the `ulid.proto` file inside the go module's source.
+
+4) Use ULIDs in you code:
+   ```go
+   // send ULIDs as protobuf
+   msg := &MyMessage{
+     Id: ulidpb.FromULID(ulid.Make()),
+   }
+
+   // receive ULIDs from protobuf
+   u := msg.Id.AsULID()
+   ```
