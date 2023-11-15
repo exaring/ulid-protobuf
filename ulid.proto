@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package ulid;
+
+option go_package = "github.com/exaring/ulid-protobuf;ulidpb";
+
+message ULID {
+    uint64 low = 1;
+    uint64 high = 2;
+}
+
