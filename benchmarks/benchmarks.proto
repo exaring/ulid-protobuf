@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package benchmarks;
+
+option go_package = "github.com/exaring/ulid-protobuf/benchmarks_test";
+
+import "ulid.proto";
+
+message String {
+    string id = 1;
+}
+
+message Native {
+    ulid.ULID id = 1;
+}
